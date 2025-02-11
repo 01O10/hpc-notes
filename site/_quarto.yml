@@ -8,6 +8,7 @@ book:
   chapters:
     - index.qmd
     - intro.qmd
+    - connecting_ssh.qmd
     - summary.qmd
     - references.qmd
 

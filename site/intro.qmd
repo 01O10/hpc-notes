@@ -1,5 +1,58 @@
-# Introduction
+# Why Use a Cluster?
 
-This is a book created from markdown and executable code.
+## Learning Outcomes
+By the end of this section, you should be able to:
+- Describe what an HPC (High-Performance Computing) system is.
+- Identify how an HPC system could benefit your research or computing tasks.
 
-See @knuth84 for additional discussion of literate programming.
+## Introduction to High-Performance Computing (HPC)
+
+Many research problems that require computing power often outgrow the capabilities of a standard desktop or laptop. HPC systems, typically structured as clusters of interconnected computers, provide a way to solve these problems efficiently. Let's explore why HPC is useful with a few examples.
+
+### When Do You Need More Than a Laptop?
+Here are some common scenarios where an HPC system is beneficial:
+
+#### Example 1: Running Many Independent Simulations (Parallel Computing)
+*A statistics student wants to validate a model by running it 1000 times.*
+- **Problem:** Each run takes an hour. Running them sequentially on a laptop would take over a month.
+- **Solution:** Since each run is independent, they can be executed simultaneously on different machines (parallel computing), reducing the total runtime significantly.
+
+#### Example 2: Analyzing Large Datasets (Memory Constraints)
+*A genomics researcher needs to process a dataset 10 times larger than before.*
+- **Problem:** The dataset is too large to even open on a standard computer.
+- **Solution:** An HPC system with more memory (RAM) can handle large datasets and perform the necessary calculations without crashing.
+
+#### Example 3: Complex Simulations (Distributed Computing)
+*An engineer using fluid dynamics simulations moves from 2D to 3D modeling.*
+- **Problem:** The computation time has more than tripled.
+- **Solution:** HPC allows parallel processing where different parts of the simulation run simultaneously, communicating only when necessary, to converge on a final result efficiently.
+
+### What is an HPC System?
+An HPC system is a **cluster of computers** working together, enabling researchers to:
+- Run tasks in **parallel** (splitting workloads across multiple processors).
+- Access **more memory** to handle large datasets.
+- Speed up **complex computations** by distributing tasks efficiently.
+
+## Have You Used a Server Before?
+Even if you've never used an HPC system, you likely interact with remote servers daily. Here are some examples:
+
+### Everyday Examples of Remote Computing
+
+1. **Checking Email**
+   - Your device contacts a remote email server to send and receive messages.
+   - Many users access the same server, making it a shared resource.
+
+2. **Searching Online**
+   - When you search for a term, a remote server processes your request against a massive database.
+   - The indexing of websites is done in parallel using multiple servers.
+
+3. **Finding Directions on a Map**
+   - Your request for a route is processed by a remote system that calculates the best path based on various metrics.
+   - Large-scale calculations like this are distributed across multiple machines.
+
+### Serial vs. Parallel Processing in Daily Life
+- **Serial Processing:** Your laptop connects to a single email server to download your messages.
+- **Parallel Processing:** Large-scale search engines use thousands of servers working together to provide instant search results.
+
+## Conclusion
+HPC systems are powerful tools that enable faster, more efficient computing for research and data-intensive applications. By leveraging parallel computing, distributed resources, and enhanced memory, researchers can tackle problems that would be impossible on standard computers.

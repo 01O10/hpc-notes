@@ -1,0 +1,114 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "site",
+    "section": "",
+    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books."
+  },
+  {
+    "objectID": "intro.html#learning-outcomes",
+    "href": "intro.html#learning-outcomes",
+    "title": "1  Why Use a Cluster?",
+    "section": "1.1 Learning Outcomes",
+    "text": "1.1 Learning Outcomes\nBy the end of this section, you should be able to: - Describe what an HPC (High-Performance Computing) system is. - Identify how an HPC system could benefit your research or computing tasks."
+  },
+  {
+    "objectID": "intro.html#introduction-to-high-performance-computing-hpc",
+    "href": "intro.html#introduction-to-high-performance-computing-hpc",
+    "title": "1  Why Use a Cluster?",
+    "section": "1.2 Introduction to High-Performance Computing (HPC)",
+    "text": "1.2 Introduction to High-Performance Computing (HPC)\nMany research problems that require computing power often outgrow the capabilities of a standard desktop or laptop. HPC systems, typically structured as clusters of interconnected computers, provide a way to solve these problems efficiently. Let’s explore why HPC is useful with a few examples.\n\n1.2.1 When Do You Need More Than a Laptop?\nHere are some common scenarios where an HPC system is beneficial:\n\n1.2.1.1 Example 1: Running Many Independent Simulations (Parallel Computing)\nA statistics student wants to validate a model by running it 1000 times. - Problem: Each run takes an hour. Running them sequentially on a laptop would take over a month. - Solution: Since each run is independent, they can be executed simultaneously on different machines (parallel computing), reducing the total runtime significantly.\n\n\n1.2.1.2 Example 2: Analyzing Large Datasets (Memory Constraints)\nA genomics researcher needs to process a dataset 10 times larger than before. - Problem: The dataset is too large to even open on a standard computer. - Solution: An HPC system with more memory (RAM) can handle large datasets and perform the necessary calculations without crashing.\n\n\n1.2.1.3 Example 3: Complex Simulations (Distributed Computing)\nAn engineer using fluid dynamics simulations moves from 2D to 3D modeling. - Problem: The computation time has more than tripled. - Solution: HPC allows parallel processing where different parts of the simulation run simultaneously, communicating only when necessary, to converge on a final result efficiently.\n\n\n\n1.2.2 What is an HPC System?\nAn HPC system is a cluster of computers working together, enabling researchers to: - Run tasks in parallel (splitting workloads across multiple processors). - Access more memory to handle large datasets. - Speed up complex computations by distributing tasks efficiently."
+  },
+  {
+    "objectID": "intro.html#have-you-used-a-server-before",
+    "href": "intro.html#have-you-used-a-server-before",
+    "title": "1  Why Use a Cluster?",
+    "section": "1.3 Have You Used a Server Before?",
+    "text": "1.3 Have You Used a Server Before?\nEven if you’ve never used an HPC system, you likely interact with remote servers daily. Here are some examples:\n\n1.3.1 Everyday Examples of Remote Computing\n\nChecking Email\n\nYour device contacts a remote email server to send and receive messages.\nMany users access the same server, making it a shared resource.\n\nSearching Online\n\nWhen you search for a term, a remote server processes your request against a massive database.\nThe indexing of websites is done in parallel using multiple servers.\n\nFinding Directions on a Map\n\nYour request for a route is processed by a remote system that calculates the best path based on various metrics.\nLarge-scale calculations like this are distributed across multiple machines.\n\n\n\n\n1.3.2 Serial vs. Parallel Processing in Daily Life\n\nSerial Processing: Your laptop connects to a single email server to download your messages.\nParallel Processing: Large-scale search engines use thousands of servers working together to provide instant search results."
+  },
+  {
+    "objectID": "intro.html#conclusion",
+    "href": "intro.html#conclusion",
+    "title": "1  Why Use a Cluster?",
+    "section": "1.4 Conclusion",
+    "text": "1.4 Conclusion\nHPC systems are powerful tools that enable faster, more efficient computing for research and data-intensive applications. By leveraging parallel computing, distributed resources, and enhanced memory, researchers can tackle problems that would be impossible on standard computers."
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "2  Summary",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever."
+  },
+  {
+    "objectID": "connecting.html",
+    "href": "connecting.html",
+    "title": "2  Connecting to Remote HPC Systems",
+    "section": "",
+    "text": "3 🔑 Step 1: Understanding Secure Connections\nBefore connecting to an HPC system, let’s understand why security is important. Unlike your personal computer, HPC clusters are multi-user systems. If login credentials are compromised, many users could be affected.\nTo prevent unauthorized access, most HPC systems use the Secure SHell (SSH) protocol, which encrypts communication between your local machine and the remote system.\nMost HPC systems disable password logins for security reasons and require SSH key authentication instead. SSH keys are a secure and convenient way to log in without entering a password each time.\nTired of entering your SSH key passphrase every time? Use an SSH agent to store it temporarily.\n🔹 Check if the SSH agent is running:\n🔹 If it says “Could not open a connection to your authentication agent”, start it:\n🔹 This will store your key for 8 hours so you don’t have to re-enter the passphrase.\nOnce connected to the HPC system, try these basic commands to navigate your remote directory:\n🔹 Check which machine you’re on:\n🔹 Find out your current location in the filesystem:\n🔹 List files in your home directory:\nYou might see important system files such as:\n- .bashrc – Shell configuration file\n- .ssh/ – Stores SSH keys\n💡 Want to see disk usage? Use:\nCongratulations! 🎊 You have successfully:\n✅ Connected to an HPC cluster via SSH.\n✅ Set up SSH key authentication for a secure login.\n✅ Used an SSH agent for convenience.\n✅ Explored your remote directory and files.\nThis is just the beginning! Now, you’re ready to submit jobs, transfer files, and utilize HPC resources efficiently.\n🔎 Next Steps:\n1️⃣ Learn how to transfer files to and from the HPC system.\n2️⃣ Submit a job using Slurm or another job scheduler.\n3️⃣ Customize your shell environment (.bashrc, .zshrc).\n💡 Questions? Check your HPC system’s documentation or ask your administrator for specific details.\n🚀 Happy Computing!"
+  },
+  {
+    "objectID": "connecting.html#learning-outcomes",
+    "href": "connecting.html#learning-outcomes",
+    "title": "2  Connecting to Remote HPC Systems",
+    "section": "2.1 🎯 Learning Outcomes",
+    "text": "2.1 🎯 Learning Outcomes\nBy the end of this tutorial, you will be able to: ✅ Establish a secure SSH connection to a remote HPC system.\n✅ Generate and manage SSH keys for passwordless authentication.\n✅ Use an SSH agent to simplify access.\n✅ Navigate and explore your remote home directory.\nThis hands-on guide is designed for absolute beginners to connect to an HPC cluster and understand basic remote access principles."
+  },
+  {
+    "objectID": "connecting.html#step-2-connecting-to-the-cluster-using-ssh",
+    "href": "connecting.html#step-2-connecting-to-the-cluster-using-ssh",
+    "title": "2  Connecting to Remote HPC Systems",
+    "section": "3.1 🏗 Step 2: Connecting to the Cluster Using SSH",
+    "text": "3.1 🏗 Step 2: Connecting to the Cluster Using SSH\nThe first step is establishing an SSH connection. Open a Terminal (Linux/macOS) or PowerShell (Windows) and use this command:\nssh username@hpc-cluster-address\n🔹 Example: If your username is alice and the cluster address is hpc.example.edu, you would type:\nssh alice@hpc.example.edu\n🔹 If prompted, enter your password.\n\n3.1.1 ❓ Troubleshooting SSH Connections\n❌ Error: “Connection refused”\n✅ Ensure you are using the correct username and HPC address. Some clusters require VPN access—check with your system admin.\n❌ Error: “Permission denied (publickey)”\n✅ The system may require SSH keys instead of passwords. Let’s set that up next!"
+  },
+  {
+    "objectID": "connecting.html#generate-an-ssh-key-pair",
+    "href": "connecting.html#generate-an-ssh-key-pair",
+    "title": "2  Connecting to Remote HPC Systems",
+    "section": "4.1 📌 Generate an SSH Key Pair",
+    "text": "4.1 📌 Generate an SSH Key Pair\nRun this command in your terminal:\nssh-keygen -a 100 -t ed25519 -f ~/.ssh/id_ed25519\n🔹 When prompted for a passphrase, enter a secure password (or leave it empty for no password).\n🔹 If successful, your SSH key pair is stored in:\n- ~/.ssh/id_ed25519 (private key) – DO NOT SHARE!\n- ~/.ssh/id_ed25519.pub (public key) – This goes to the HPC cluster.\n💡 For older systems: If ed25519 is unavailable, use RSA instead:\nssh-keygen -a 100 -b 4096 -t rsa -f ~/.ssh/id_rsa"
+  },
+  {
+    "objectID": "connecting.html#step-4-copy-your-public-key-to-the-hpc-cluster",
+    "href": "connecting.html#step-4-copy-your-public-key-to-the-hpc-cluster",
+    "title": "2  Connecting to Remote HPC Systems",
+    "section": "4.2 📂 Step 4: Copy Your Public Key to the HPC Cluster",
+    "text": "4.2 📂 Step 4: Copy Your Public Key to the HPC Cluster\nNow, send your public key to the HPC system:\nscp ~/.ssh/id_ed25519.pub username@hpc-cluster-address:~/\nThen, log into the cluster using your password-based SSH and install the key:\nssh username@hpc-cluster-address\nmkdir -p ~/.ssh\ncat ~/id_ed25519.pub &gt;&gt; ~/.ssh/authorized_keys\nchmod 600 ~/.ssh/authorized_keys\nNow, logout and try reconnecting:\nexit\nssh username@hpc-cluster-address\n🚀 If everything is set up correctly, you should log in without entering a password!"
+  },
+  {
+    "objectID": "connecting_ssh.html",
+    "href": "connecting_ssh.html",
+    "title": "2  Connecting to Remote HPC Systems",
+    "section": "",
+    "text": "3 🔑 Step 1: Understanding Secure Connections\nBefore connecting to an HPC system, let’s understand why security is important. Unlike your personal computer, HPC clusters are multi-user systems. If login credentials are compromised, many users could be affected.\nTo prevent unauthorized access, most HPC systems use the Secure SHell (SSH) protocol, which encrypts communication between your local machine and the remote system.\nMost HPC systems disable password logins for security reasons and require SSH key authentication instead. SSH keys are a secure and convenient way to log in without entering a password each time.\nTired of entering your SSH key passphrase every time? Use an SSH agent to store it temporarily.\n🔹 Check if the SSH agent is running:\n🔹 If it says “Could not open a connection to your authentication agent”, start it:\n🔹 This will store your key for 8 hours so you don’t have to re-enter the passphrase.\nOnce connected to the HPC system, try these basic commands to navigate your remote directory:\n🔹 Check which machine you’re on:\n🔹 Find out your current location in the filesystem:\n🔹 List files in your home directory:\nYou might see important system files such as:\n- .bashrc – Shell configuration file\n- .ssh/ – Stores SSH keys\n💡 Want to see disk usage? Use:\nCongratulations! 🎊 You have successfully:\n✅ Connected to an HPC cluster via SSH.\n✅ Set up SSH key authentication for a secure login.\n✅ Used an SSH agent for convenience.\n✅ Explored your remote directory and files.\nThis is just the beginning! Now, you’re ready to submit jobs, transfer files, and utilize HPC resources efficiently.\n🔎 Next Steps:\n1️⃣ Learn how to transfer files to and from the HPC system.\n2️⃣ Submit a job using Slurm or another job scheduler.\n3️⃣ Customize your shell environment (.bashrc, .zshrc).\n💡 Questions? Check your HPC system’s documentation or ask your administrator for specific details.\n🚀 Happy Computing!"
+  },
+  {
+    "objectID": "connecting_ssh.html#learning-outcomes",
+    "href": "connecting_ssh.html#learning-outcomes",
+    "title": "2  Connecting to Remote HPC Systems",
+    "section": "2.1 🎯 Learning Outcomes",
+    "text": "2.1 🎯 Learning Outcomes\nBy the end of this tutorial, you will be able to: ✅ Establish a secure SSH connection to a remote HPC system.\n✅ Generate and manage SSH keys for passwordless authentication.\n✅ Use an SSH agent to simplify access.\n✅ Navigate and explore your remote home directory.\nThis hands-on guide is designed for absolute beginners to connect to an HPC cluster and understand basic remote access principles."
+  },
+  {
+    "objectID": "connecting_ssh.html#step-2-connecting-to-the-cluster-using-ssh",
+    "href": "connecting_ssh.html#step-2-connecting-to-the-cluster-using-ssh",
+    "title": "2  Connecting to Remote HPC Systems",
+    "section": "3.1 🏗 Step 2: Connecting to the Cluster Using SSH",
+    "text": "3.1 🏗 Step 2: Connecting to the Cluster Using SSH\nThe first step is establishing an SSH connection. Open a Terminal (Linux/macOS) or PowerShell (Windows) and use this command:\nssh username@hpc-cluster-address\n🔹 Example: If your username is alice and the cluster address is hpc.example.edu, you would type:\nssh alice@hpc.example.edu\n🔹 If prompted, enter your password.\n\n3.1.1 ❓ Troubleshooting SSH Connections\n❌ Error: “Connection refused”\n✅ Ensure you are using the correct username and HPC address. Some clusters require VPN access—check with your system admin.\n❌ Error: “Permission denied (publickey)”\n✅ The system may require SSH keys instead of passwords. Let’s set that up next!"
+  },
+  {
+    "objectID": "connecting_ssh.html#generate-an-ssh-key-pair",
+    "href": "connecting_ssh.html#generate-an-ssh-key-pair",
+    "title": "2  Connecting to Remote HPC Systems",
+    "section": "4.1 📌 Generate an SSH Key Pair",
+    "text": "4.1 📌 Generate an SSH Key Pair\nRun this command in your terminal:\nssh-keygen -a 100 -t ed25519 -f ~/.ssh/id_ed25519\n🔹 When prompted for a passphrase, enter a secure password (or leave it empty for no password).\n🔹 If successful, your SSH key pair is stored in:\n- ~/.ssh/id_ed25519 (private key) – DO NOT SHARE!\n- ~/.ssh/id_ed25519.pub (public key) – This goes to the HPC cluster.\n💡 For older systems: If ed25519 is unavailable, use RSA instead:\nssh-keygen -a 100 -b 4096 -t rsa -f ~/.ssh/id_rsa"
+  },
+  {
+    "objectID": "connecting_ssh.html#step-4-copy-your-public-key-to-the-hpc-cluster",
+    "href": "connecting_ssh.html#step-4-copy-your-public-key-to-the-hpc-cluster",
+    "title": "2  Connecting to Remote HPC Systems",
+    "section": "4.2 📂 Step 4: Copy Your Public Key to the HPC Cluster",
+    "text": "4.2 📂 Step 4: Copy Your Public Key to the HPC Cluster\nNow, send your public key to the HPC system:\nscp ~/.ssh/id_ed25519.pub username@hpc-cluster-address:~/\nThen, log into the cluster using your password-based SSH and install the key:\nssh username@hpc-cluster-address\nmkdir -p ~/.ssh\ncat ~/id_ed25519.pub &gt;&gt; ~/.ssh/authorized_keys\nchmod 600 ~/.ssh/authorized_keys\nNow, logout and try reconnecting:\nexit\nssh username@hpc-cluster-address\n🚀 If everything is set up correctly, you should log in without entering a password!"
+  }
+]

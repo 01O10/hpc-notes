@@ -1,0 +1,172 @@
+# Connecting to Remote HPC Systems
+
+## 🎯 Learning Outcomes
+By the end of this tutorial, you will be able to:
+✅ Establish a secure SSH connection to a remote HPC system.  
+✅ Generate and manage SSH keys for passwordless authentication.  
+✅ Use an SSH agent to simplify access.  
+✅ Navigate and explore your remote home directory.  
+
+This hands-on guide is designed for **absolute beginners** to connect to an HPC cluster and understand basic remote access principles.  
+
+---
+
+# 🔑 Step 1: Understanding Secure Connections  
+
+Before connecting to an HPC system, let’s understand why security is important. Unlike your personal computer, **HPC clusters are multi-user systems**. If login credentials are compromised, many users could be affected.  
+
+To prevent unauthorized access, most HPC systems use the **Secure SHell (SSH) protocol**, which encrypts communication between your local machine and the remote system.  
+
+## 🏗 Step 2: Connecting to the Cluster Using SSH  
+
+The first step is establishing an **SSH connection**. Open a **Terminal** (Linux/macOS) or **PowerShell** (Windows) and use this command:  
+
+```sh
+ssh username@hpc-cluster-address
+```
+
+🔹 **Example:** If your username is `alice` and the cluster address is `hpc.example.edu`, you would type:  
+
+```sh
+ssh alice@hpc.example.edu
+```
+
+🔹 **If prompted, enter your password.**  
+
+### ❓ Troubleshooting SSH Connections  
+
+❌ **Error: "Connection refused"**  
+✅ Ensure you are using the correct username and HPC address. Some clusters require VPN access—check with your system admin.  
+
+❌ **Error: "Permission denied (publickey)"**  
+✅ The system may **require SSH keys instead of passwords**. Let’s set that up next!  
+
+---
+
+# 🔐 Step 3: Setting Up SSH Key Authentication  
+
+Most HPC systems **disable password logins** for security reasons and require **SSH key authentication** instead. SSH keys are a secure and convenient way to log in without entering a password each time.  
+
+## 📌 Generate an SSH Key Pair  
+
+Run this command in your terminal:  
+
+```sh
+ssh-keygen -a 100 -t ed25519 -f ~/.ssh/id_ed25519
+```
+
+🔹 When prompted for a passphrase, enter a **secure password** (or leave it empty for no password).  
+
+🔹 If successful, your SSH key pair is stored in:  
+- **`~/.ssh/id_ed25519`** (private key) – DO NOT SHARE!  
+- **`~/.ssh/id_ed25519.pub`** (public key) – This goes to the HPC cluster.  
+
+💡 **For older systems:** If `ed25519` is unavailable, use RSA instead:  
+
+```sh
+ssh-keygen -a 100 -b 4096 -t rsa -f ~/.ssh/id_rsa
+```
+
+## 📂 Step 4: Copy Your Public Key to the HPC Cluster  
+
+Now, send your **public key** to the HPC system:  
+
+```sh
+scp ~/.ssh/id_ed25519.pub username@hpc-cluster-address:~/
+```
+
+Then, log into the cluster using your **password-based SSH** and install the key:  
+
+```sh
+ssh username@hpc-cluster-address
+mkdir -p ~/.ssh
+cat ~/id_ed25519.pub >> ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys
+```
+
+Now, **logout** and try reconnecting:  
+
+```sh
+exit
+ssh username@hpc-cluster-address
+```
+
+🚀 **If everything is set up correctly, you should log in without entering a password!**  
+
+---
+
+# 🚀 Step 5: Using SSH Agent for Convenience  
+
+Tired of entering your SSH key passphrase every time? Use an **SSH agent** to store it temporarily.  
+
+🔹 Check if the SSH agent is running:  
+
+```sh
+ssh-add -l
+```
+
+🔹 If it says **"Could not open a connection to your authentication agent"**, start it:  
+
+```sh
+eval $(ssh-agent)
+ssh-add -t 8h ~/.ssh/id_ed25519
+```
+
+🔹 This will **store your key for 8 hours** so you don’t have to re-enter the passphrase.  
+
+---
+
+# 📁 Step 6: Exploring Your HPC Home Directory  
+
+Once connected to the HPC system, try these basic commands to **navigate your remote directory**:  
+
+🔹 Check which machine you’re on:  
+
+```sh
+hostname
+```
+
+🔹 Find out your current location in the filesystem:  
+
+```sh
+pwd
+```
+
+🔹 List files in your home directory:  
+
+```sh
+ls -a
+```
+
+You might see important system files such as:  
+- `.bashrc` – Shell configuration file  
+- `.ssh/` – Stores SSH keys  
+
+💡 **Want to see disk usage?** Use:  
+
+```sh
+du -sh ~
+```
+
+---
+
+# 🎉 Wrapping Up  
+
+Congratulations! 🎊 You have successfully:  
+✅ Connected to an HPC cluster via SSH.  
+✅ Set up SSH key authentication for a secure login.  
+✅ Used an SSH agent for convenience.  
+✅ Explored your remote directory and files.  
+
+This is just the beginning! Now, you’re ready to submit jobs, transfer files, and utilize **HPC resources** efficiently.  
+
+🔎 **Next Steps:**  
+1️⃣ Learn how to **transfer files to and from the HPC system**.  
+2️⃣ Submit a job using **Slurm or another job scheduler**.  
+3️⃣ Customize your **shell environment (.bashrc, .zshrc)**.  
+
+---
+
+💡 **Questions?** Check your HPC system’s documentation or ask your administrator for specific details.  
+
+🚀 **Happy Computing!**  
